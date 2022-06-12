@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Bookers2</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,19 +12,35 @@
 
   <body>
     <header>
-      <a href="/">Bookers</a>
-
-      <lu>
-        <li>Home</li>
-        <li>About</li>
-        <li>Sign up</li>
-        <li>Log in</li>
-      </lu>
-
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="/">Bookers</a>
+          <button class="navbar-toggler" type="button"
+          data-toggle="collapse" data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false"
+          aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <lu class="navbar-nav ml-auto">
+              <li class="nav-link text-light"><i class="fas fa-home"></i> Home</li>
+              <li class="nav-link text-light"><i class="fas fa-link"></i> About</li>
+              <li class="nav-link text-light"><i class="fas fa-user-plus"></i> Sign up</li>
+              <li class="nav-link text-light"><i class="fas fa-sign-in-alt"></i> Log in</li>
+            </lu>
+          </div>
+        </div>
+      </nav>
     </header>
     <%= yield %>
     <footer>
-      <p>CopyRight Infratop.inc</p>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
     </footer>
   </body>
 </html>
