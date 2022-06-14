@@ -22,6 +22,7 @@
           <i class="fas fa-user-cog"></i>
         <% end %>
       </div>
+
       <h2 class="mt-3">New book</h2>
       <%= form_with model: @book do |f| %>
         <div class="form-group">
@@ -40,22 +41,26 @@
 
     <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
-      <table class="table font-weight-bold">
+      <table class="table">
+        <thead>
+          <th></th>
+          <th>Title</th>
+          <th>Opinion</th>
+        </thead>
         <tbody>
-          <thead>
-            <th>Title</th>
-            <th>Opinion</th>
-          </thead>
-        </tbody>
+          <% @books.each do |book| %>
           <tr>
-            <td></td>
-            <td></td>
+            <td><%= image_tag @user.get_profile_image(80, 80) %></td>
+            <td>
+              <%= link_to book_path(book.id) do %>
+                <%= book.title %>
+              <% end %>
+            </td>
+            <td><%= book.opinion %></td>
           </tr>
+          <% end %>
+        </tbody>
       </table>
-
-
-
-
     </div>
   </div>
 </div>
