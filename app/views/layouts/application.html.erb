@@ -23,13 +23,13 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <lu class="navbar-nav ml-auto">
-              <li>
-                <%= link_to root_path, class: "nav-link text-light" do %>
-                  <i class="fas fa-home"></i> Home
-                <% end %>
-              </li>
 
               <% if user_signed_in? %>
+                <li>
+                <%= link_to user_path(current_user.id), class: "nav-link text-light" do %>
+                  <i class="fas fa-home"></i> Home
+                <% end %>
+                </li>
                 <li>
                   <%= link_to home_about_path, class: "nav-link text-light" do %>
                     <i class="fas fa-users"></i> Users
@@ -45,6 +45,11 @@
                     <i class="fas fa-sign-out-alt"></i> Log out
                   <% end %>
               <% else %>
+                <li>
+                <%= link_to root_path, class: "nav-link text-light" do %>
+                  <i class="fas fa-home"></i> Home
+                <% end %>
+                </li>
                 <li>
                   <%= link_to home_about_path, class: "nav-link text-light" do %>
                     <i class="fas fa-link"></i> About

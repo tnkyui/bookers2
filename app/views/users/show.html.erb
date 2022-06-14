@@ -4,27 +4,59 @@
   <div class="row">
     <div class="col-md-3">
       <h2>User info</h2>
-      <!--プロフィール画像-->
+      <%= image_tag @user.get_profile_image(100, 100) %>
       <table class="table font-weight-bold">
         <tbody>
           <tr>
             <td>name</td>
             <td><%= @user.name %></td>
           </tr>
-        </tbody>
           <tr>
             <td>introduction</td>
             <td><%= @user.introduction %></td>
           </tr>
+        </tbody>
       </table>
-      <%= link_to edit_user_path(@user.id), class: "btn btn-outline-secondary btn-block" do %>
-        <i class="fas fa-user-cog"></i>
+      <div class="row">
+        <%= link_to edit_user_path(@user.id), class: "btn btn-outline-secondary btn-block" do %>
+          <i class="fas fa-user-cog"></i>
+        <% end %>
+      </div>
+      <h2 class="mt-3">New book</h2>
+      <%= form_with model: @book do |f| %>
+        <div class="form-group">
+          <%= f.label :title %><br>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :opinion %><br>
+          <%= f.text_area :opinion, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "Create Book", class: "btn btn-success"%>
+        </div>
       <% end %>
     </div>
-    <h2 class="mt-3">New book</h2>
+
+    <div class="col-md-8 offset-md-1">
+      <h2>Books</h2>
+      <table class="table font-weight-bold">
+        <tbody>
+          <thead>
+            <th>Title</th>
+            <th>Opinion</th>
+          </thead>
+        </tbody>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+      </table>
 
 
 
+
+    </div>
   </div>
 </div>
 

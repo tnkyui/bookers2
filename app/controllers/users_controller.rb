@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    # @book = Book.new 新規登録フォームのアクション定義
+    # @book = Book.new
     # @books = @user.books
   end
 
