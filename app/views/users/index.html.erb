@@ -40,24 +40,20 @@
     </div>
 
     <div class="col-md-8 offset-md-1">
-      <h2>Books</h2>
+      <h2>Users</h2>
       <table class="table">
         <thead>
+          <th>image</th>
+          <th>name</th>
           <th></th>
-          <th>Title</th>
-          <th>Opinion</th>
         </thead>
         <tbody>
-          <% @books.each do |book| %>
+          <% @users.each do |user| %>
           <tr>
-            <td><%= image_tag book.user.get_profile_image(80, 80) %></td>
+            <td><%= image_tag @user.get_profile_image(80, 80) %></td>
+            <td><%= user.name %></td>
             <td>
-              <%= link_to book_path(book.id) do %>
-                <%= book.title %>
-              <% end %>
-            </td>
-            <td>
-              <%= book.opinion %>
+              <%= link_to "Show", user_path(user.id) %>
             </td>
           </tr>
           <% end %>

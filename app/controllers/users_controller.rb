@@ -15,6 +15,11 @@ class UsersController < ApplicationController
     redirect_to user_path(user.id)
   end
 
+  def index
+    @user = current_user
+    @users = User.all
+  end
+
   def user_params
     params.require(:user).permit(:name, :profile_image, :introduction)
   end
