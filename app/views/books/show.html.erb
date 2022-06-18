@@ -13,7 +13,7 @@
         </div>
         <div class="form-group">
           <%= f.label :opinion %><br>
-          <%= f.text_area :opinion, class: "form-control" %>
+          <%= f.text_area :body, class: "form-control" %>
         </div>
         <div class="form-group">
           <%= f.submit "Create Book", class: "btn btn-success" %>
@@ -38,7 +38,7 @@
               <% end %>
             </td>
             <td>
-              <%= @book.opinion %>
+              <%= @book.body %>
             </td>
             <% if @book.user == current_user %>
               <td>
